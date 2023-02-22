@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Available Flights">
+        <lightning-spinner lwc:if={loading}></lightning-spinner>
+        <p class="slds-m-around_medium" lwc:elseif={isEmptyList}>
+            There are no available flights on your date
+        </p>
+        <div class="slds-m-around_medium" lwc:else>
+            <lightning-datatable
+                key-field="Id"
+                hide-checkbox-column
+                onrowaction={handleRowAction}
+                data={flights}
+                columns={columns}>
+            </lightning-datatable>
+         </div>        
+    </lightning-card>
+</template>
